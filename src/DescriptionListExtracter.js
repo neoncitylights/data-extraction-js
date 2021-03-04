@@ -12,14 +12,13 @@
 class DescriptionListExtracter {
 	/**
 	 * @param {HTMLDListElement|HTMLDivElement} element Can parse a `<dl>` element, or a `<div>` element containing `<dt>` and `<dd>`
-	 * @param {Object} config Object to pass in configuration settings
-	 * @return {Object<String|Array>|undefined} Can possibly be one of the following
+	 * @return {Object<String>|undefined} Can possibly be one of the following
 	 * - a dictionary that maps the terms (`<dt>`) as keys, and the details (`<dd>`) as values,
 	 * 	which can either be a string or array. If the element passed is neither
 	 * - an empty object, if the element passed has no children elements
 	 * - undefined, if the element passed is neither a `<dt>` or `<div>`
 	 */
-	extract(element, config) {
+	extract(element) {
 		if (
 			!(element instanceof HTMLDListElement) &&
 			!(element instanceof HTMLDivElement)
@@ -35,8 +34,6 @@ class DescriptionListExtracter {
 		var self = this;
 		var object = {};
 		var terms = [];
-		var details = [];
-
 		children.forEach(function (currentElement) {
 			var previousElement = currentElement.previousElementSibling;
 			switch (currentElement.tagName) {
