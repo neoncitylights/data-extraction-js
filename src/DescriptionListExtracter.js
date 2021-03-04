@@ -44,14 +44,15 @@ class DescriptionListExtracter {
 					terms.push(currentElement.textContent);
 					break;
 				case "DD":
-					if (previousElement.tagName === 'DT') {
+					if (
+						previousElement !== null &&
+						previousElement.tagName === 'DT'
+					) {
 						terms.forEach(function (term) {
-							terms[term] = currentElement.textContent;
+							object[term] = currentElement.textContent;
 						});
 
 						terms = [];
-					} else if (previousElement.tagName === 'DD') {
-						details.push(currentElement.textContent);
 					}
 					break;
 				case "DIV":
