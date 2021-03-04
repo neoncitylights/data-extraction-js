@@ -13,8 +13,6 @@ class DescriptionListExtracter {
 	/**
 	 * @param {HTMLDListElement|HTMLDivElement} element Can parse a `<dl>` element, or a `<div>` element containing `<dt>` and `<dd>`
 	 * @param {Object} config Object to pass in configuration settings
-	 * @param {CallableFunction(String)} config.dtCallback Callback to run on the textual content of a `<dt>` element
-	 * @param {CallableFunction(String)} config.ddCallback Callback to run on the textual content of a `<dd>` element
 	 * @return {Object<String|Array>|undefined} Can possibly be one of the following
 	 * - a dictionary that maps the terms (`<dt>`) as keys, and the details (`<dd>`) as values,
 	 * 	which can either be a string or array. If the element passed is neither
